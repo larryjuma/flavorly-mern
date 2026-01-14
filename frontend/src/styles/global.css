@@ -1,0 +1,147 @@
+/* src/styles/global.css */
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* App container */
+.app-container {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  min-height: 100vh;
+  background: #1a1a1a; /* lighter dark */
+}
+
+/* Main content */
+main {
+  flex: 1; /* pushes footer to bottom */
+  margin-left: 240px; /* width of sidebar */
+  padding: 40px;
+  background: #1a1a1a;
+  transition: margin-left 0.3s ease;
+  font-family: "Inter", sans-serif;
+  color: #e0e0e0;
+}
+
+/* Mobile adjustments */
+@media (max-width: 1024px) {
+  main {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  main {
+    margin-left: 0;
+    padding: 20px;
+  }
+}
+
+/* Headings */
+main h1,
+main h2 {
+  font-family: "Playfair Display", serif;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 20px;
+  animation: slideInDown 0.6s ease;
+  font-size: 2rem;
+}
+
+@media (max-width: 767px) {
+  main h1,
+  main h2 {
+    font-size: 1.6rem;
+  }
+}
+
+main h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ffd166;
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+/* Paragraphs */
+main p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  animation: fadeIn 0.8s ease;
+}
+
+@media (max-width: 767px) {
+  main p {
+    font-size: 1rem;
+  }
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-cta {
+  background: #ffd166;
+  color: #1c1c1c;
+  font-weight: 600;
+}
+
+.primary-cta:hover {
+  background: #e6bc59;
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 209, 102, 0.4);
+}
+
+/* Accent button (Reservation etc.) */
+.accent-cta {
+  background: #ef476f;
+  color: #fff;
+  font-weight: 600;
+}
+
+.accent-cta:hover {
+  background: #d63b60;
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 6px 18px rgba(239, 71, 111, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease;
+}

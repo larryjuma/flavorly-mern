@@ -1,0 +1,158 @@
+/* src/styles/Navbar.css */
+
+/* Sidebar */
+.flavorly-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+  color: #fff;
+  padding: 22px 18px;
+  transform: translateX(-110%);
+  transition: transform 0.38s cubic-bezier(.2,.9,.3,1);
+  z-index: 1200;
+  box-shadow: 2px 0 18px rgba(0, 0, 0, 0.55);
+  overflow-y: auto;
+}
+
+.flavorly-sidebar.open {
+  transform: translateX(0);
+}
+
+/* Logo */
+.flavorly-logo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #ffd166;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 32px;
+  animation: fadeIn 0.8s ease;
+}
+
+/* Nav list */
+.flavorly-nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.flavorly-nav-link {
+  display: block;
+  padding: 14px 16px;
+  margin: 8px 0;
+  border-radius: 10px;
+  color: #e0e0e0;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: none;
+  --delay: calc(var(--i) * 80ms);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  font-size: 1rem;
+}
+
+@media (max-width: 767px) {
+  .flavorly-nav-link {
+    font-size: 0.95rem;
+  }
+}
+
+.flavorly-nav-link:hover,
+.flavorly-nav-link:focus {
+  background: rgba(255, 209, 102, 0.12);
+  color: #ffd166;
+  transform: translateX(6px);
+}
+
+.flavorly-nav-link.active {
+  background: #ffd166;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.flavorly-sidebar.open .flavorly-nav-link {
+  animation: navItemIn 360ms cubic-bezier(.2, .9, .3, 1) forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes navItemIn {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hamburger button */
+.flavorly-hamburger {
+  display: none;
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 1300;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(180deg, #2e2e2e, #1c1c1c);
+  color: #ffd166;
+  border: none;
+  border-radius: 12px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+  transition: transform 0.25s ease;
+}
+
+.flavorly-hamburger:hover {
+  transform: scale(1.1);
+}
+
+/* Overlay */
+.flavorly-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+
+.flavorly-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Desktop: always show sidebar */
+@media (min-width: 768px) {
+  .flavorly-sidebar {
+    transform: translateX(0);
+  }
+  .flavorly-hamburger,
+  .flavorly-overlay {
+    display: none;
+  }
+
+  /* Ensure nav links are visible on desktop */
+  .flavorly-nav-link {
+    opacity: 1;
+    transform: translateX(0);
+    animation: none;
+  }
+}
+
+/* Mobile: toggleable sidebar */
+@media (max-width: 767px) {
+  .flavorly-sidebar {
+    width: 200px;
+  }
+
+  .flavorly-hamburger {
+    display: block;
+  }
+}

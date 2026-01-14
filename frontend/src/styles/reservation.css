@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&family=Montserrat:wght@600&display=swap');
+
+/* Variables */
+:root {
+  --primary: #FFD166;
+  --secondary: #E63946;
+  --dark: #1A1A1A;
+  --dark-alt: #262626;
+  --text-light: #F5F5F5;
+  --text-muted: #E0E0E0;
+}
+
+/* Page Wrapper */
+.reservation-page {
+  padding: 4rem 2rem;
+  color: var(--text-light);
+  animation: fadeIn 1s ease;
+}
+
+/* Section Title with red underline */
+.section-title {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--secondary);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* Intro Text */
+.reservation-intro {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Gradient Box */
+.reservation-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem; /* smaller padding to reduce size */
+  background: linear-gradient(160deg, var(--secondary) 0%, var(--dark) 100%);
+  border-radius: 15px;
+}
+
+/* Form */
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.reservation-form input {
+  padding: 0.8rem 1rem;
+  border-radius: 25px;
+  border: none;
+  background: var(--dark-alt);
+  color: var(--text-light);
+  font-size: 1rem;
+}
+.reservation-form input::placeholder {
+  color: var(--text-muted);
+}
+.reservation-form button.primary-cta {
+  background: var(--primary);
+  color: var(--dark);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.reservation-form button.primary-cta:hover {
+  background: var(--secondary);
+  color: var(--text-light);
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .reservation-page {
+    padding: 3rem 1rem;
+  }
+  .reservation-container {
+    padding: 1.5rem;
+  }
+}
