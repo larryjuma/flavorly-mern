@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import React, { useEffect } from "react";
-import "../styles/Navbar.css";
+import "../styles/navbar.css";
 
 function Navbar({ active, onNavigate, isMenuOpen, toggleMenu }) {
   useEffect(() => {
