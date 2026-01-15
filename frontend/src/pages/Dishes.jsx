@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/Dishes.css";
+import "../styles/dishes.css";
 import { API_BASE } from "../config";
 
 const categories = ["breakfast", "lunch", "dinner", "drinks"];

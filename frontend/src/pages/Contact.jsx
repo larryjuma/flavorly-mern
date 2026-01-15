@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "../styles/Contact.css";
+import "../styles/contact.css";
 import { API_BASE } from "../config";
 
 const Contact = () => {

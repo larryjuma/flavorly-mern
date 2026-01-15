@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "../styles/Home.css";
+import "../styles/home.css";
 import "../styles/global.css";
 
 
