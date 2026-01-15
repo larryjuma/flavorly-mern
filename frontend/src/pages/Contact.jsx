@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/Contact.css";
+import { API_BASE } from "../config";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -18,7 +19,7 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://192.168.100.9:5000/api/contact", formData);
+      const res = await axios.post(`${API_BASE}/api/contact`, formData);
       toast.success(res.data.message || "Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (err) {

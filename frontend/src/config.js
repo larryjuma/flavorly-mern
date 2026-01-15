@@ -1,2 +1,2 @@
-// src/config.js
-export const API_BASE = "https://flavorly-backend.onrender.com";
+export const API_BASE =
+  import.meta.env.VITE_API_BASE || "http://localhost:5000";

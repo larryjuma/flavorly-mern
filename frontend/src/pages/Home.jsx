@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import "../styles/Home.css";
 import "../styles/global.css";
 
+
 function Home({ onNavigate }) {
   // Newsletter state
   const [newsletterEmail, setNewsletterEmail] = useState("");

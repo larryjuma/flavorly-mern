@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/Dishes.css";
+import { API_BASE } from "../config";
 
 const categories = ["breakfast", "lunch", "dinner", "drinks"];
 
@@ -14,8 +15,7 @@ const Dishes = () => {
     const fetchDishes = async () => {
       try {
         setLoading(true);
-        // const { data } = await axios.get("http://localhost:5000/api/menu"); 
-        const { data } = await axios.get("http://192.168.100.9:5000/api/menu"); 
+        const { data } = await axios.get(`${API_BASE}/api/menu`);
         setDishes(data);
         setLoading(false);
       } catch (err) {
@@ -52,7 +52,8 @@ const Dishes = () => {
       <div className="dishes-grid">
         {filteredDishes.map((dish) => (
           <div className="dish-card" key={dish._id}>
-            <img src={`http://192.168.100.9:5000${dish.image}`} alt={dish.name} />
+            {/* Use API_BASE for images too */}
+            <img src={`${API_BASE}${dish.image}`} alt={dish.name} />
             <h3>{dish.name}</h3>
             <p>{dish.description}</p>
             <span className="price">{dish.price}</span>

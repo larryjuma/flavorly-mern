@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/reservation.css";
+import { API_BASE } from "../config";
 
 const Reservation = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ const Reservation = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://192.168.100.9:5000/api/reservations", {
+      const res = await fetch(`${API_BASE}/api/reservations`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
